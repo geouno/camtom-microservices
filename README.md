@@ -204,7 +204,7 @@ Send a `POST` request with a PDF file to the `ingestion-api`.
 
 ```bash
 curl -X POST "http://localhost:8000/documents/process" \
-  -F "file=@/path/to/your/invoice.pdf" \
+  -F "file=@./sample-data/generated-image-invoice-nano-banana.png" \
   -F "jurisdiction=MX" \
   -F "org_id=acme-corp-mx"
 ```
