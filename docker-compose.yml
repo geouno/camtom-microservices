@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+
+  ingestion-api:
+    build:
+      context: ./ingestion-api
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - ./ingestion-api/src:/app/src
+      - ./ingestion-api/sample-data:/app/data
+    depends_on:
+      - evaluation-service
+    environment:
+      - GOOGLE_GENAI_API_KEY=${GOOGLE_GENAI_API_KEY}
+      - EVALUATION_SERVICE_URL=http://evaluation-service:8001
+
+  evaluation-service:
+    build:
+      context: ./evaluation-service
+      dockerfile: Dockerfile
+    ports: # for debugging purposes
+      - "8001:8001"
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8001 --reload
+    volumes:
+      - ./evaluation-service/src:/app/src

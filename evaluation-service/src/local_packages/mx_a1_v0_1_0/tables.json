@@ -1,0 +1,26 @@
+{
+  "igi_tariffs": [
+    {
+      "hs_code": "850440",
+      "nico": "01",
+      "origin": "*",
+      "rate": 0.05
+    }
+  ],
+  "dta": {
+    "type": "ad_valorem",
+    "rate": 0.008
+  },
+  "iva": {
+    "standard_rate": 0.16
+  },
+  "noms": [
+    {
+      "hs_code": "850440",
+      "nico": "01",
+      "measure_name": "NOM-001-SCFI-2018",
+      "description": "Safety of electronic equipment",
+      "authority": "Secretaría de Economía"
+    }
+  ]
+}
